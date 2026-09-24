@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AEFINITY AI INC.</title>
+<meta name="description" content="AEFINITY AI INC. builds CIS-2, an open specification and verifier for bit-exact, independently replayable fp32 transformer inference, and receipt-gated AI agent tooling. Orange, Texas.">
+<link rel="canonical" href="https://aefinity-ai.github.io/">
+<style>
+  :root {
+    --bg: #fbfaf7; --fg: #1b1b1f; --muted: #5a5a63; --line: #e2dfd7;
+    --accent: #1f5f8b; --accent-fg: #ffffff; --code-bg: #f1efe9; --card: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121418; --fg: #ececf0; --muted: #a2a2ad; --line: #2a2d34;
+      --accent: #7fb6e0; --accent-fg: #0e1a24; --code-bg: #1b1e25; --card: #181b21;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121418; --fg: #ececf0; --muted: #a2a2ad; --line: #2a2d34;
+    --accent: #7fb6e0; --accent-fg: #0e1a24; --code-bg: #1b1e25; --card: #181b21;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 Georgia, "Times New Roman", serif; }
+  a { color: var(--accent); }
+  header, main, footer { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  header { padding-top: 28px; }
+  .brand { font: 700 15px/1 system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+  nav { margin-top: 14px; font: 15px/1.4 system-ui, sans-serif; }
+  nav a { margin-right: 18px; text-decoration: none; }
+  h1 { font-size: 2.1rem; line-height: 1.15; margin: 48px 0 12px; }
+  h2 { font-size: 1.35rem; margin: 48px 0 10px; padding-top: 8px; border-top: 1px solid var(--line); }
+  p.lede { font-size: 1.15rem; color: var(--muted); margin-top: 0; }
+  pre { background: var(--code-bg); border: 1px solid var(--line); padding: 14px 16px; overflow-x: auto; border-radius: 6px; font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  code { font: 0.92em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code-bg); padding: 1px 4px; border-radius: 3px; }
+  pre code { background: none; padding: 0; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 18px 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; }
+  .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .97rem; }
+  .btn { display: inline-block; background: var(--accent); color: var(--accent-fg); padding: 10px 16px; border-radius: 6px; text-decoration: none; font: 600 15px system-ui, sans-serif; margin: 8px 10px 0 0; }
+  .muted { color: var(--muted); }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  footer { padding: 40px 16px 48px; color: var(--muted); font-size: .92rem; border-top: 1px solid var(--line); margin-top: 56px; }
+  .ack p { margin: 10px 0; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">AEFINITY AI INC.</div>
+  <nav>
+    <a href="#what">What we build</a>
+    <a href="#reproduce">Reproduce it</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#why">Why it matters</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>AI inference you can check, not just trust.</h1>
+  <p class="lede">We build CIS-2: an open specification and verifier for bit-exact fp32 transformer inference. The same pinned model and the same input produce the same bits on every conforming machine, and anyone can reproduce that claim on their own hardware in under fifteen minutes.</p>
+  <a class="btn" href="https://github.com/Aefinity-AI/cis2-spec">CIS-2 on GitHub</a>
+  <a class="btn" href="https://huggingface.co/datasets/aefinityAIINC/cis2-conformance">Conformance dataset</a>
+
+  <h2 id="what">What we build</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>CIS-2 specification and verifier</h3>
+      <p>A written specification of canonical floating-point semantics for fp32 transformer inference, with two clean-room implementations (C and Rust) that produce identical digests from the specification text alone.</p>
+    </div>
+    <div class="card">
+      <h3>Conformance evidence</h3>
+      <p>Pinned test vectors, expected digests and machine fingerprints, published so a third party can re-run the checks and compare against the record rather than against our word.</p>
+    </div>
+    <div class="card">
+      <h3>Inference receipts and a receipt gate</h3>
+      <p>A receipt binds an output to a pinned model, an input and a verifiable digest. Our prototype tool gateway enforces a simple rule for AI agents: no receipt, no action.</p>
+    </div>
+  </div>
+  <p>Verifiable inference and agent receipts are an active field with many good projects in it. Our contribution is the combination: bit-exact, independently replayable inference verification, applied at request time as a tool gate, on hardware ranging from data-centre GPUs to phones.</p>
+
+  <h2 id="reproduce">Reproduce it yourself</h2>
+  <p>No account, no token and no GPU are needed. The full self-check builds both verifiers and runs nine checks against the repository's own pinned digests:</p>
+<pre><code>git clone https://github.com/Aefinity-AI/cis2-spec &amp;&amp; cd cis2-spec &amp;&amp; ./selfcheck.sh</code></pre>
+  <p>A shorter path checks the four pinned digests with the C verifier only. It needs <code>git</code>, <code>gcc</code>, <code>make</code> and <code>curl</code>:</p>
+<pre><code>git clone https://github.com/Aefinity-AI/cis2-spec &amp;&amp; cd cis2-spec &amp;&amp; scripts/self_check.sh</code></pre>
+  <p>Both paths end with a PASS or FAIL line against the pinned <code>HuggingFaceTB/SmolLM2-135M</code> test vector. If your machine produces a different digest, that is a finding we want to hear about.</p>
+
+  <h2 id="evidence">Evidence</h2>
+  <p>The same pinned digests have been reproduced on machines that share no hardware in common:</p>
+  <table>
+    <tr><th>Class</th><th>Examples</th></tr>
+    <tr><td>x86-64 with AVX2 and FMA</td><td>Intel Core i5 laptops and desktops</td></tr>
+    <tr><td>x86-64 scalar, no AVX2 or FMA</td><td>Intel Celeron N4020 and N4020C</td></tr>
+    <tr><td>aarch64 phones (Android)</td><td>Samsung Galaxy (Exynos 1330), Motorola edge 2025 (MediaTek)</td></tr>
+    <tr><td>Emulated CPU</td><td>QEMU</td></tr>
+    <tr><td>NVIDIA GPUs, fp32 path</td><td>Tesla T4 and P100 on Kaggle, host and CUDA digests equal</td></tr>
+  </table>
+  <p>Results we publish include the negative ones. Grouped and int8 GPU kernels do not match the fp32 digests, by design, and the record says so. A single flipped weight bit moves the witness digest even when the model's text output is unchanged, which is why the specification hashes full logits rather than the argmax alone.</p>
+  <ul>
+    <li><a href="https://github.com/Aefinity-AI/cis2-spec">github.com/Aefinity-AI/cis2-spec</a>: specification, verifiers, expected digests, results.</li>
+    <li><a href="https://huggingface.co/datasets/aefinityAIINC/cis2-conformance">huggingface.co/datasets/aefinityAIINC/cis2-conformance</a>: conformance vectors and receipts.</li>
+    <li><a href="https://github.com/Aefinity-AI">github.com/Aefinity-AI</a>: the rest of our public code.</li>
+  </ul>
+
+  <h2 id="why">Why it matters</h2>
+  <p>Most claims about an AI system's behaviour rest on trust in the operator. Bit-exact, replayable inference turns one specific claim, "this output came from this model on this input", into something a regulator, a customer or an auditor can check on their own machine. That is the kind of evidence record-keeping and traceability requirements ask for, and it is what statistical replay cannot provide.</p>
+  <p>We are careful about what this does not do. CIS-2 does not make a model correct, safe or fair. It makes the provenance of an output checkable, so that the harder questions can be asked about a fixed, agreed-upon artifact instead of a moving target.</p>
+
+  <h2 id="contact">Contact</h2>
+  <p>AEFINITY AI INC. is an early-stage company in Orange, Texas, founded by Justin Thompson. We are looking for design partners who need checkable inference, and for compute partners who want the specification tested on their hardware.</p>
+  <ul>
+    <li>Email: <a href="mailto:justin.brian.thompson@gmail.com">justin.brian.thompson@gmail.com</a></li>
+    <li>Phone: 409-320-1536</li>
+    <li>GitHub: <a href="https://github.com/Aefinity-AI">Aefinity-AI</a></li>
+    <li>Hugging Face: <a href="https://huggingface.co/aefinityAIINC">aefinityAIINC</a></li>
+  </ul>
+
+  <h2>Acknowledgments</h2>
+  <div class="ack">
+    <p>A special thank you to Charles Seaman and Linda Blanchard, whose contributions have helped Aefinity AI stay on track.</p>
+    <p>And a very special thank you to <strong>Bonnie Rae Power</strong>: an amazing woman, a great friend and neighbor, without whom Aefinity AI would have never had a chance to ever get started. Thank you, Bonnie, for your advice, care, encouragement, guidance, intuitive wisdom, and financial assistance.</p>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 AEFINITY AI INC. &middot; Orange, Texas &middot; <a href="https://github.com/Aefinity-AI/aefinity-ai.github.io">Site source</a>
+</footer>
+</body>
+</html>
