@@ -79,8 +79,8 @@
       <p>Pinned test vectors, expected digests and machine fingerprints, published so a third party can re-run the checks and compare against the record rather than against our word.</p>
     </div>
     <div class="card">
-      <h3>Inference receipts and a receipt gate</h3>
-      <p>A receipt binds an output to a pinned model, an input and a verifiable digest. Our prototype tool gateway enforces a simple rule for AI agents: no receipt, no action.</p>
+      <h3>Inference receipts and continuous validation</h3>
+      <p>A receipt binds an output to a pinned model, an input and a verifiable digest. Continuous validation turns one-shot checks into an ongoing integrity monitor that can detect silent changes in weights, software, or environment.</p>
     </div>
   </div>
   <p>Verifiable inference and agent receipts are an active field with many good projects in it. Our contribution is the combination: bit-exact, independently replayable inference verification, applied at request time as a tool gate, on hardware ranging from data-centre GPUs to phones.</p>
@@ -117,7 +117,8 @@
   <h2 id="why">Why it matters</h2>
   <p>Most claims about an AI system's behaviour rest on trust in the operator. Bit-exact, replayable inference turns one specific claim, "this output came from this model on this input", into something a regulator, a customer or an auditor can check on their own machine. That is the kind of evidence record-keeping and traceability requirements ask for, and it is what statistical replay cannot provide.</p>
   <p>We are careful about what this does not do. CIS-2 does not make a model correct, safe or fair. It makes the provenance of an output checkable, so that the harder questions can be asked about a fixed, agreed-upon artifact instead of a moving target.</p>
-  <p>For a short plain-language explanation written for non-experts, see <a href="https://github.com/Aefinity-AI/cis2-spec/blob/main/docs/public/Why_Bit_Identical_Inference_Matters_for_Trust.md">Why Bit-Identical Inference Matters for Trust</a>. Additional public materials on verification and integrity demonstrations are collected under <a href="https://github.com/Aefinity-AI/cis2-spec/tree/main/docs/public">docs/public</a>.</p>
+  <p>One-shot checks are useful; continuous validation is stronger. We publish research and a practical experiment outline for turning the CIS-2 self-check into an ongoing integrity monitor that can detect silent changes in weights, software, or environment. See <a href="https://github.com/Aefinity-AI/cis2-spec/blob/main/docs/public/Continuous_Validation_of_Bit_Identical_Inference.md">Continuous Validation of Bit-Identical Inference</a> and the companion <a href="https://github.com/Aefinity-AI/cis2-spec/blob/main/docs/public/Continuous_Validation_Experiment.md">experiment outline</a>.</p>
+  <p>For a short plain-language explanation written for non-experts, see <a href="https://github.com/Aefinity-AI/cis2-spec/blob/main/docs/public/Why_Bit_Identical_Inference_Matters_for_Trust.md">Why Bit-Identical Inference Matters for Trust</a>. A one-page overview is available as the <a href="https://github.com/Aefinity-AI/cis2-spec/blob/main/docs/public/Elevator_Summary.md">Elevator Summary</a>. All public materials are collected under <a href="https://github.com/Aefinity-AI/cis2-spec/tree/main/docs/public">docs/public</a>.</p>
 
   <h2 id="contact">Contact</h2>
   <p>AEFINITY AI INC. is an early-stage company in Orange, Texas, founded by Justin Thompson. We are looking for design partners who need checkable inference, and for compute partners who want the specification tested on their hardware.</p>
