@@ -102,7 +102,12 @@
     <tr><td>Emulated CPU</td><td>QEMU</td></tr>
     <tr><td>NVIDIA GPUs, fp32 path</td><td>Tesla T4 and P100 on Kaggle, host and CUDA digests equal</td></tr>
   </table>
-  <p>Results we publish include the negative ones. Grouped and int8 GPU kernels do not match the fp32 digests, by design, and the record says so. A single flipped weight bit moves the witness digest even when the model's text output is unchanged, which is why the specification hashes full logits rather than the argmax alone.</p>
+  <p>Results we publish include the negative ones. Grouped and int8 GPU kernels do not match the fp32 digests, by design, and the record says so.</p>
+  <p><strong>Concrete integrity demonstrations</strong> (these show why full-logit digests matter more than matching the final text alone):</p>
+  <ul>
+    <li><a href="https://github.com/Aefinity-AI/cis2-spec/blob/main/docs/results/2026-09-13-BITFLIP-HEADTOHEAD.md">Single-weight corruption head-to-head</a> — a flipped weight bit can leave the generated text unchanged while breaking the witness digest.</li>
+    <li><a href="https://github.com/Aefinity-AI/cis2-spec/blob/main/docs/results/2026-09-17-EMBED-SUBSTITUTION-HEADTOHEAD.md">Realistic embedding substitution head-to-head</a> — quantization, pruning, fine-tune and surgical row-patch cases; only the full-logit digest catches every alteration, including unexercised rows.</li>
+  </ul>
   <ul>
     <li><a href="https://github.com/Aefinity-AI/cis2-spec">github.com/Aefinity-AI/cis2-spec</a>: specification, verifiers, expected digests, results.</li>
     <li><a href="https://huggingface.co/datasets/aefinityAIINC/cis2-conformance">huggingface.co/datasets/aefinityAIINC/cis2-conformance</a>: conformance vectors and receipts.</li>
