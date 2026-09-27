@@ -87,9 +87,9 @@
 
   <h2 id="reproduce">Reproduce it yourself</h2>
   <p>No account, no token and no GPU are needed. The full self-check builds both verifiers and runs nine checks against the repository's own pinned digests:</p>
-<pre><code>git clone https://github.com/Aefinity-AI/cis2-spec &amp;&amp; cd cis2-spec &amp;&amp; ./selfcheck.sh</code></pre>
+<pre><code>git clone https://github.com/Aefinity-AI/cis2-spec && cd cis2-spec && ./selfcheck.sh</code></pre>
   <p>A shorter path checks the four pinned digests with the C verifier only. It needs <code>git</code>, <code>gcc</code>, <code>make</code> and <code>curl</code>:</p>
-<pre><code>git clone https://github.com/Aefinity-AI/cis2-spec &amp;&amp; cd cis2-spec &amp;&amp; scripts/self_check.sh</code></pre>
+<pre><code>git clone https://github.com/Aefinity-AI/cis2-spec && cd cis2-spec && scripts/self_check.sh</code></pre>
   <p>Both paths end with a PASS or FAIL line against the pinned <code>HuggingFaceTB/SmolLM2-135M</code> test vector. If your machine produces a different digest, that is a finding we want to hear about.</p>
 
   <h2 id="evidence">Evidence</h2>
@@ -112,6 +112,7 @@
   <h2 id="why">Why it matters</h2>
   <p>Most claims about an AI system's behaviour rest on trust in the operator. Bit-exact, replayable inference turns one specific claim, "this output came from this model on this input", into something a regulator, a customer or an auditor can check on their own machine. That is the kind of evidence record-keeping and traceability requirements ask for, and it is what statistical replay cannot provide.</p>
   <p>We are careful about what this does not do. CIS-2 does not make a model correct, safe or fair. It makes the provenance of an output checkable, so that the harder questions can be asked about a fixed, agreed-upon artifact instead of a moving target.</p>
+  <p>For a short plain-language explanation written for non-experts, see <a href="https://github.com/Aefinity-AI/cis2-spec/blob/main/docs/public/Why_Bit_Identical_Inference_Matters_for_Trust.md">Why Bit-Identical Inference Matters for Trust</a>. Additional public materials on verification and integrity demonstrations are collected under <a href="https://github.com/Aefinity-AI/cis2-spec/tree/main/docs/public">docs/public</a>.</p>
 
   <h2 id="contact">Contact</h2>
   <p>AEFINITY AI INC. is an early-stage company in Orange, Texas, founded by Justin Thompson. We are looking for design partners who need checkable inference, and for compute partners who want the specification tested on their hardware.</p>
